@@ -1,0 +1,28 @@
+{
+  "name": "members-only",
+  "version": "1.0.0",
+  "description": "A message board app that requires login authentication to view the author of other messages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewtran28/members-only.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewtran28/members-only/issues"
+  },
+  "homepage": "https://github.com/andrewtran28/members-only#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express-async-handler": "^1.2.0",
+    "express-validator": "^7.2.1",
+    "node-postgres": "^0.6.2",
+    "pg": "^8.13.1"
+  }
+}
