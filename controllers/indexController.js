@@ -4,7 +4,7 @@ const query = require("../db/queries.js");
 const { validationResult } = require("express-validator");
 
 const getIndex = asyncHandler(async (req, res) => {
-  res.render("index", { title: "Message Forum" });
+  res.render("index", { title: "Message Forum", user: req.user });
   res.end();
 });
 

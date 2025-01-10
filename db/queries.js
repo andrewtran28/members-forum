@@ -24,7 +24,16 @@ const getUserByUsername = async (username) => {
   return rows;
 };
 
+const getUserById = async (id) => {
+  const { rows } = await pool.query(
+    `SELECT * FROM users WHERE username = $1 LIMIT 1;`,
+    [id]
+  );
+  return rows;
+};
+
 module.exports = {
   addUser,
   getUserByUsername,
+  getUserById,
 };
