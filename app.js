@@ -6,7 +6,6 @@ const app = express();
 // const passport = require("passport");
 const appRouter = require("./routes/appRouter");
 // const LocalStrategy = require("passport-local").Strategy;
-// const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
 const assetsPath = path.join(__dirname, "public");
@@ -18,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+// app.use("/sign-up", appRouter);
 app.use("/", appRouter);
 
 // app.use(
@@ -29,9 +29,9 @@ app.use("/", appRouter);
 // );
 // app.use(passport.session());
 
-// app.use((req, res) => {
-//   res.status(404).render("error404");
-// });
+app.use((req, res) => {
+  res.status(404).render("error404");
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
