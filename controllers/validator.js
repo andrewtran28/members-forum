@@ -38,15 +38,6 @@ const validator = [
     .bail(),
 ];
 
-// const editValidator = [
-//   body(".password")
-//     .trim()
-//     .custom((value) => {
-//       return value == process.env.ADMIN_PASSWORD;
-//     })
-//     .withMessage("Type 'delete' to confirm deletion. Note: Case sensitive."),
-// ];
-
 module.exports = {
   validator,
 };

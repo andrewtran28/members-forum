@@ -17,19 +17,22 @@ const addUser = async (username, firstName, lastName, password, passphrase) => {
 };
 
 const getUserByUsername = async (username) => {
-  const { rows } = await pool.query(
-    `SELECT * FROM users WHERE username = $1 LIMIT 1;`,
-    [username]
-  );
-  return rows;
+  const { rows } = await pool.query(`SELECT * FROM users WHERE username = $1`, [
+    username,
+  ]);
+
+  // if (rows.length === 0) {
+  //   return null;
+  // }
+
+  return rows[0];
 };
 
 const getUserById = async (id) => {
-  const { rows } = await pool.query(
-    `SELECT * FROM users WHERE username = $1 LIMIT 1;`,
-    [id]
-  );
-  return rows;
+  const { rows } = await pool.query(`SELECT * FROM users WHERE user_id = $1;`, [
+    id,
+  ]);
+  return rows[0];
 };
 
 module.exports = {

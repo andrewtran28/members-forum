@@ -4,7 +4,10 @@ const query = require("../db/queries.js");
 const { validationResult } = require("express-validator");
 
 const getIndex = asyncHandler(async (req, res) => {
-  res.render("index", { title: "Message Forum", user: req.user });
+  res.render("index", {
+    title: "Message Forum",
+    user: req.user,
+  });
   res.end();
 });
 
@@ -45,8 +48,23 @@ const submitSignUp = asyncHandler(async (req, res) => {
   }
 });
 
+const getLogIn = asyncHandler(async (req, res) => {
+  res.render("login", { title: "User Login", errors: null });
+});
+
+const handleLogOut = (req, res, next) => {
+  res.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+};
+
 module.exports = {
   getIndex,
   getSignUp,
   submitSignUp,
+  getLogIn,
+  handleLogOut,
 };

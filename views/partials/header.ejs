@@ -4,8 +4,12 @@
     <header>
       <div>[LOGO GOES HERE]</div>
       <div>
-        <a href="/sign-up"><button>Sign-Up</button></a> 
-        Already have an account? <button>Sign-In</button>
+        <% if (currentUser) { %>
+        <span>Welcome, <%= currentUser.username %></span>
+        <% } else { %>
+        <a href="/signup"><button>Sign-Up</button></a>
+        Already have an account? <a href="/login">Sign-In</a>
+        <% } %>
       </div>
     </header>
   </body>

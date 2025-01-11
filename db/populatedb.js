@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
-const { Client } = require("pg");
 require("dotenv").config();
+const { Client } = require("pg");
 
 const sql = `
   DROP TABLE IF EXISTS users CASCADE;
