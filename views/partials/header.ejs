@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <body>
-    <header>
-      <div>[LOGO GOES HERE]</div>
-      <div>
-        <% if (currentUser) { %>
-        <span>Welcome, <%= currentUser.username %></span>
-        <% } else { %>
-        <a href="/signup"><button>Sign-Up</button></a>
-        Already have an account? <a href="/login">Sign-In</a>
+
+<body>
+  <header id="header">
+    <div id="logo"><a href="/">SUPER MESSAGES</a></div>
+    <div class="header-right">
+      <% if (currentUser) { %>
+        <span>Welcome, <a href="/user/<%= currentUser.user_id %>"><%= currentUser.username %></a></span>
+        <% if (currentUser.super_member) { %>
+        <span class="super-member">(You are a super member)</span>
         <% } %>
-      </div>
-    </header>
-  </body>
+        <a href="/logout"><button>Log Out</button></a>
+      <% } else { %>
+        <a href="/login"><button>Sign-In</button></a>
+        <span>Don't have an account? <a href="/signup">Sign-Up!</a></span>
+      <% } %>
+    </div>
+  </header>
+</body>
+
 </html>

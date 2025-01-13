@@ -15,7 +15,7 @@ app.set("view engine", "ejs");
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -26,15 +26,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use((req, res, next) => {
-//   if (req.isAuthenticated()) {
-//     res.locals.currentUser = req.user;
-//   }
-//   next();
-// });
-
 app.use("/", appRouter);
-app.use("/login", appRouter);
 
 app.use((req, res) => {
   res.status(404).render("error404");

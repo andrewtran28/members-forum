@@ -8,21 +8,17 @@ passport.use(
     try {
       console.log("Authenticating user: ", username);
       const user = await query.getUserByUsername(username);
-      console.log("user: ");
-      console.log(user);
-      const match = await bcrypt.compare(password, user.password);
 
       if (!user) {
-        console.log(notValidMsg);
         return done(null, false, {
-          message: "Incorrect username.",
+          message: "Incorrect username or password.",
         });
       }
 
+      const match = await bcrypt.compare(password, user.password);
       if (!match) {
-        console.log(notValidMsg);
         return done(null, false, {
-          message: "Incorrect password.",
+          message: "Incorrect username or password.",
         });
       }
 
@@ -39,17 +35,14 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-  console.log("Deserializing user with ID:", id);
   try {
     const user = await query.getUserById(id);
-    console.log("User fetched during deserialization:", user);
     if (!user) {
       return done(null, false);
     }
 
     done(null, user);
   } catch (err) {
-    console.error("Error during deserialization:", err);
     done(err);
   }
 });

@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <%- include('partials/header') %>
+
     <h1>User Login</h1>
-    <% if (typeof error !== "undefined" && error) { %>
-    <p class="error"><%= error %></p>
-    <% } %>
+
     <form action="/login" method="POST">
       <div>
         <label for="username">Username: </label>
@@ -19,11 +20,16 @@
         <label for="password">Password: </label>
         <input id="password" name="password" type="password" required />
       </div>
+      <% if (typeof error !== "undefined" && error) { %>
+        <span class="error"><%= error %></span>
+        <br>
+      <% } %>
+      <br>
       <button type="submit">Log In</button>
     </form>
-    <br />
-    Don't have an account? <a href="/signup">Sign-up</a>
-    <br />
+    <br>
+    <div>Don't have an account? <a href="/signup">Sign-up</a></div>
+    <br>
     <a href="/">Return to home page</a>
   </body>
 </html>

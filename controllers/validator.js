@@ -1,7 +1,7 @@
 const { body } = require("express-validator");
 const query = require("../db/queries.js");
 
-const validator = [
+const signupValidator = [
   body("username")
     .trim()
     .custom(async (newUser) => {
@@ -38,6 +38,22 @@ const validator = [
     .bail(),
 ];
 
+const messageValidator = [
+  body("subject")
+    .trim()
+    .notEmpty()
+    .isLength({ max: 75 })
+    .withMessage("Subject be between 1-75 characters.")
+    .bail(),
+  body("message")
+    .trim()
+    .notEmpty()
+    .isLength({ max: 500 })
+    .withMessage("Message has a maximum character limit of 500.")
+    .bail(),
+];
+
 module.exports = {
-  validator,
+  signupValidator,
+  messageValidator,
 };

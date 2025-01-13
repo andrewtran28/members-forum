@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+body {
+
+  background-color: lightgreen;
+  font-family: 'Geist', Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#header {
+  background-color: violet;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  font-weight: 600;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  margin: 0 40px;
+  font-size: 2rem;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin: 0 40px;
+}
+
+.super-member {
+  font-size: 1rem;
+  font-style: oblique;
+  color: red;
+}
+
+main {
+  max-width: 1200px;
+  width: 100%;
+  border: 1px solid blue;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+}
+
+#add-message {
+  background-color: #51a036;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+#add-message:hover {
+  background-color: #458d2d;
+  color: white;
+}
+#add-message:active {
+  background-color: #377024;
+}
+
+.messages-cont {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.msg-side button {
+  border: 1px solid red;
+  width: 75px;
+}
+
+.message {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  min-height: 125px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.guest {
+  font-style: oblique;
+  color: gray;
+}
+
+.msg-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.msg-left-cont {
+  border-right: 1px solid black;
+  margin-right: 10px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 200px;
+}
+
+.msg-username {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.msg-id {
+  color: red;
+  font-size: 1rem;
+  font-style: oblique;
+}
+
+.msg-right-cont{
+  display: flex;
+  flex-direction: column;
+  flex: 2 1 0;
+  position: relative;
+}
+
+.msg-subject {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.msg-timestamp {
+  color: gray;
+  font-size: 1rem;
+  position: absolute;
+  right: 5px;
+}
+
+.error {
+  color: rgb(255, 0, 0);
+  font-size: 1.1rem;
+}

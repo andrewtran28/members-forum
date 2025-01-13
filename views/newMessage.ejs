@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <h1>Create a new message</h1>
+    <form action="" method="POST">
+      <label for="subject">Subject: </label>
+      <input class="subject" name="subject" type="text" required />
+      <br />
+      <br />
+      <label for="message">Message: </label>
+      <br />
+      <textarea
+        for="message"
+        name="message"
+        maxLength="500"
+        required
+      ></textarea>
+      <br />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr />
+    <a href="/">Return to home page</a>
+  </body>
+</html>
