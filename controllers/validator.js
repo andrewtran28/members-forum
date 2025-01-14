@@ -38,6 +38,22 @@ const signupValidator = [
     .bail(),
 ];
 
+const messageValidator = [
+  body("subject")
+    .trim()
+    .notEmpty()
+    .isLength({ max: 50 })
+    .withMessage("Subject be between 1-50 characters.")
+    .bail(),
+  body("message")
+    .trim()
+    .notEmpty()
+    .isLength({ max: 500 })
+    .withMessage("Message has a maximum character limit of 500.")
+    .bail(),
+];
+
 module.exports = {
   signupValidator,
+  messageValidator,
 };

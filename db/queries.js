@@ -24,9 +24,7 @@ const getUserByUsername = async (username) => {
 };
 
 const getUserById = async (id) => {
-  const { rows } = await pool.query(`SELECT * FROM users WHERE user_id = $1;`, [
-    id,
-  ]);
+  const { rows } = await pool.query(`SELECT * FROM users WHERE user_id = $1;`, [id]);
   return rows[0];
 };
 
@@ -80,10 +78,13 @@ const addMessage = async (userId, subject, message) => {
   );
 };
 
+const getMessageById = async (message_id) => {
+  const { rows } = await pool.query(`SELECT * FROM messages WHERE message_id = $1;`, [message_id]);
+  return rows[0];
+}
+
 const deleteMessageById = async (message_id) => {
-  await pool.query(`
-    DELETE FROM messages WHERE message_id = $1;
-  `, [message_id])
+  await pool.query(`DELETE FROM messages WHERE message_id = $1;`, [message_id])
 }
 
 module.exports = {
@@ -94,5 +95,6 @@ module.exports = {
   deleteUser,
   getAllMessages,
   addMessage,
+  getMessageById,
   deleteMessageById
 };

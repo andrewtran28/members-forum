@@ -133,11 +133,15 @@ const submitNewMessage = asyncHandler(async (req, res) => {
 });
 
 const deleteMessage = asyncHandler (async(req, res) => {
-  if(req.body.message_id !== currentUser.user_id && !currentUser.super_member) {
+  const currentUser = res.locals.currentUser;
+  const { message_id } = req.body;
+  const message = await query.getMessageById(message_id);
+
+  if(message.user_id !== currentUser.user_id && !currentUser.super_member) {
     return res.status(403).json( { success: false, error: "Forbidden. You do not have permission to delete this message."})
   }
 
-  await query.deleteMessageById(req.body.message_id);
+  await query.deleteMessageById(message_id);
   res.redirect("/");
 });
 

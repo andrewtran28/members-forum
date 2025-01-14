@@ -17,7 +17,8 @@
           <label for="subject">Subject: </label>
           <br>
           <input class="subject" name="subject" type="text" maxLength="50" required />
-          <br />
+          <%- include('partials/customErrors', {errors: errors, selector:
+          'subject'}) %>
           <br />
           <label for="message">Message: </label>
           <br />
@@ -28,7 +29,8 @@
             maxLength="500"
             required
           ></textarea>
-          <br />
+          <%- include('partials/customErrors', {errors: errors, selector:
+          'message'}) %>
           <br />
           <button class="btn-green" type="submit">Submit</button>
         </form>
