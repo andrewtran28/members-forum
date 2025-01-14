@@ -6,7 +6,6 @@ const query = require("../db/queries.js");
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
-      console.log("Authenticating user: ", username);
       const user = await query.getUserByUsername(username);
 
       if (!user) {

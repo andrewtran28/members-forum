@@ -52,6 +52,4 @@ appRouter.post(
 
 appRouter.post("/deleteMessage", indexController.deleteMessage);
 
-// appRouter.get("/user/:userid", indexController.getUserInfo);
-
 module.exports = appRouter;

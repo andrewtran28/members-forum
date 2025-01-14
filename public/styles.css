@@ -2,7 +2,7 @@
 
 body {
   --header: #171717;
-  --background: #222831;
+  --background: #312622;
   --main: #333333;
   --item: #4a4a4a;
   --text: #dadada;
@@ -36,13 +36,13 @@ button {
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   margin: 5px 0;
-  text-align: center;
 }
 
 .btn-green {
   background-color: #51a036;
+  padding: 10px 50px;
 }
 .btn-green:hover {
   background-color: #458d2d;
@@ -70,7 +70,12 @@ button {
 
 label, input {
   font-size: 1.5rem;
-  min-width: 400px;
+  min-width: 300px;
+  vertical-align: center;
+}
+
+#passphrase {
+  min-width: 500px;
 }
 
 h1 {
@@ -83,16 +88,16 @@ h1 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-height: 60px;
-  padding: 20px 0;
+  padding: 10px 0;
   font-weight: 600;
+
 }
 
 #logo {
   display: flex;
   align-items: center;
   margin: 0 40px;
-  font-size: 2rem;
+  height: 100px;
 }
 
 .header-right {
@@ -113,6 +118,8 @@ main {
   max-width: 1200px;
   width: 100%;
   margin: 0 20px;
+  /* min-height should be (100vh - height of header + footer in pixels) */
+  min-height: calc(100vh - (120px + 40px));
 }
 
 .message-header {
@@ -166,6 +173,10 @@ main {
   font-weight: 600;
 }
 
+.msg-fullname {
+  color: var(--super);
+}
+
 .msg-id {
   color: var(--super);
   font-size: 1rem;
@@ -200,13 +211,34 @@ main {
   font-weight: 600;
 }
 
-.user-page {
+.page-cont {
   margin: 20px;
+  place-self: center;
 }
 
 .cont {
   background-color: var(--item);
   margin: 20px 0;
-  padding: 10px 20px 30px 20px;
+  padding: 5px 20px 30px 20px;
   font-size: 1.5rem;
+  width: 100%;
+}
+
+.message-text {
+  font-size: 1.25rem;
+  width: 600px;
+  height: 300px;
+}
+
+#footer {
+  background-color: var(--header);
+  color: var(--text-gray);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 5px 0;
+  font-size: 1rem;
+  align-items: center;
+  height: 30px;
 }

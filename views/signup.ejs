@@ -4,67 +4,73 @@
     <meta charset="UTF-8" />
     <title>Sign-Up</title>
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
   </head>
   <body>
     <%- include('partials/header') %>
-    <h1>Sign Up</h1>
-    <form action="" method="POST">
-      <label for="username">Username: </label>
-      <input
-        id="username"
-        name="username"
-        type="text"
-        maxLength="25"
-        required
-      />
-      <%- include('partials/customErrors', {errors: errors, selector:
-      'username'}) %>
-      <label for="password">Password: </label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        maxLength="50"
-        required
-      />
-      <%- include('partials/customErrors', {errors: errors, selector:
-      'password'}) %>
-      <br />
-      <label for="firstName">First Name: </label>
-      <input
-        id="first-name"
-        name="firstName"
-        type="text"
-        maxlength="25"
-        required
-      />
-      <%- include('partials/customErrors', {errors: errors, selector:
-      'firstName'}) %>
-      <label for="lastName">Last Name: </label>
-      <input
-        id="last-name"
-        name="lastName"
-        type="text"
-        maxLength="25"
-        required
-      />
-      <%- include('partials/customErrors', {errors: errors, selector:
-      'lastName'}) %>
-      <br />
-      <label for="superMember">Super Membership Passcode: </label>
-      <br>
-      <input
-        id="super-member"
-        name="superMember"
-        autocomplete="off"
-        maxLength="25"
-        placeholder="Enter the Super secret passphrase"
-      />
-      <br />
-      <br />
-      <button class="btn-green">Sign Up</button>
-    </form>
-    <br>
-    <a href="/">Return to home page</a>
+    <main>
+      <div class="page-cont">
+        <h1>Sign Up</h1>
+        <form action="" method="POST">
+          <label for="username">Username: </label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            maxLength="25"
+            required
+          />
+          <%- include('partials/customErrors', {errors: errors, selector:
+          'username'}) %>
+          <label for="password">Password: </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            maxLength="50"
+            required
+          />
+          <%- include('partials/customErrors', {errors: errors, selector:
+          'password'}) %>
+          <br />
+          <label for="firstName">First Name: </label>
+          <input
+            id="first-name"
+            name="firstName"
+            type="text"
+            maxlength="25"
+            required
+          />
+          <%- include('partials/customErrors', {errors: errors, selector:
+          'firstName'}) %>
+          <label for="lastName">Last Name: </label>
+          <input
+            id="last-name"
+            name="lastName"
+            type="text"
+            maxLength="25"
+            required
+          />
+          <%- include('partials/customErrors', {errors: errors, selector:
+          'lastName'}) %>
+          <br />
+          <label for="superMember">Super Membership Passphrase: </label>
+          <br>
+          <input
+            id="passphrase"
+            name="superMember"
+            autocomplete="off"
+            maxLength="50"
+            placeholder="Enter the Super secret passphrase"
+          />
+          <br />
+          <br />
+          <button class="btn-green">Sign Up</button>
+        </form>
+        <br>
+        <a href="/">Return to home page</a>
+      </div>
+    </main>
+    <%- include('partials/footer') %>
   </body>
 </html>

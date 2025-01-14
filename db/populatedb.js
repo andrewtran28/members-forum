@@ -26,7 +26,7 @@ const createMessagesTable = `
   CREATE TABLE messages (
     message_id SERIAL PRIMARY KEY, 
     user_id INT NOT NULL,
-    subject VARCHAR (255),
+    subject VARCHAR (50),
     message TEXT NOT NULL,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(user_id)

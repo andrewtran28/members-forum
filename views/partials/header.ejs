@@ -3,7 +3,7 @@
 
 <body>
   <header id="header">
-    <div id="logo"><a href="/">SUPER MESSAGES</a></div>
+    <a href="/"><img id="logo" src="/logo.png"></a>
     <div class="header-right">
       <% if (currentUser) { %>
         <span>Welcome, <a href="/user/<%= currentUser.user_id %>"><%= currentUser.username %></a> (<%= currentUser.first_name %> <%= currentUser.last_name %>)</span>
@@ -12,7 +12,7 @@
         <% } %>
         <span><a href="/logout">Log Out</a></span>
       <% } else { %>
-        <a href="/login"><button class="btn-green">Sign-In</button></a>
+        <a href="/login"><button id="sign-in" class="btn-green">Sign-In</button></a>
         <span>Don't have an account? <a href="/signup">Sign-Up!</a></span>
       <% } %>
     </div>

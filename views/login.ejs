@@ -5,31 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
   </head>
   <body>
     <%- include('partials/header') %>
 
-    <h1>User Login</h1>
-
-    <form action="/login" method="POST">
-      <div>
-        <label for="username">Username: </label>
-        <input id="username" name="username" type="text" required />
-      </div>
-      <div>
-        <label for="password">Password: </label>
-        <input id="password" name="password" type="password" required />
-      </div>
-      <% if (typeof error !== "undefined" && error) { %>
-        <span class="error"><%= error %></span>
+    <main>
+      <div class="page-cont">
+        <h1>User Login</h1>
+        <form action="/login" method="POST">
+          <label for="username">Username: </label>
+          <input id="username" name="username" type="text" maxLength="50" required />
+          <br><br>
+          <label for="password">Password: </label>
+          <input id="password" name="password" type="password" maxLength="50" required />
+        <% if (typeof error !== "undefined" && error) { %>
+          <br>
+          <span class="error"><%= error %></span>
+        <% } %>
         <br>
-      <% } %>
+        <br>
+        <button class="btn-green" type="submit">Log In</button>
+      </form>
       <br>
-      <button class="btn-green" type="submit">Log In</button>
-    </form>
-    <br>
-    <div>Don't have an account? <a href="/signup">Sign-up</a></div>
-    <br>
-    <a href="/">Return to home page</a>
+      <div>Don't have an account? <a href="/signup">Sign-up</a></div>
+      <br>
+      <a href="/">Return to home page</a>
+      </div>
+    </main>
+    <%- include('partials/footer') %>
   </body>
 </html>
