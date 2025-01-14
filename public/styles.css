@@ -1,25 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
 body {
-
-  background-color: lightgreen;
+  --header: #171717;
+  --background: #222831;
+  --main: #333333;
+  --item: #4a4a4a;
+  --text: #dadada;
+  --text-gray: #a1a1a1;
+  --text-hover: #dab35a;
+  --header-text: #FFD369;
+  --footer: #352F44;
+  --super: #fc003f;
+  
+  background-color: var(--background);
+  color: var(--text);
   font-family: 'Geist', Arial, Helvetica, sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
 
+a {
+  color: var(--header-text);
+}
+a:visited {
+  color: var(--header-text);
+}
+
+button {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.15rem;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.btn-green {
+  background-color: #51a036;
+}
+.btn-green:hover {
+  background-color: #458d2d;
+  color: var(--text-hover);
+}
+.btn-green:active {
+  background-color: #377024;
+}
+
+.btn-danger {
+  background-color: var(--super);
+}
+.btn-danger:hover {
+  background-color: #da0036;
+  color: var(--text-hover);
+}
+.btn-danger:active {
+  background-color: #b4002d;
+}
+
+.delete {
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+
+label, input {
+  font-size: 1.5rem;
+  min-width: 400px;
+}
+
+h1 {
+  color: var(--header-text);
+}
+
 #header {
-  background-color: violet;
+  background-color: var(--header);
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-height: 60px;
   padding: 20px 0;
   font-weight: 600;
 }
@@ -41,61 +105,45 @@ body {
 .super-member {
   font-size: 1rem;
   font-style: oblique;
-  color: red;
+  color: var(--super);
 }
 
 main {
+  background-color: var(--main);
   max-width: 1200px;
   width: 100%;
-  border: 1px solid blue;
+  margin: 0 20px;
 }
 
 .message-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-
-}
-
-#add-message {
-  background-color: #51a036;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1.5rem;
-}
-#add-message:hover {
-  background-color: #458d2d;
-  color: white;
-}
-#add-message:active {
-  background-color: #377024;
+  margin: 0 20px;
 }
 
 .messages-cont {
   max-width: 1200px;
-  width: 100%;
+  margin: 0 10px;
 }
 
 .msg-side button {
-  border: 1px solid red;
+  border: 1px solid var(--super);
   width: 75px;
 }
 
 .message {
-  background-color: white;
+  background-color: var(--item);
   border-radius: 5px;
   display: flex;
-  min-height: 125px;
-  padding: 10px;
-  margin: 10px 0;
+  min-height: 150px;
+  padding: 15px;
+  margin: 15px;
 }
 
 .guest {
   font-style: oblique;
-  color: gray;
+  color: #b5b5b5;
 }
 
 .msg-side {
@@ -104,7 +152,7 @@ main {
 }
 
 .msg-left-cont {
-  border-right: 1px solid black;
+  border-right: 1px solid var(--text);
   margin-right: 10px;
   display:flex;
   flex-direction: column;
@@ -113,12 +161,13 @@ main {
 }
 
 .msg-username {
+  color: var(--header-text);
   font-size: 1.25rem;
   font-weight: 600;
 }
 
 .msg-id {
-  color: red;
+  color: var(--super);
   font-size: 1rem;
   font-style: oblique;
 }
@@ -131,19 +180,33 @@ main {
 }
 
 .msg-subject {
+  color: var(--header-text);
   font-weight: 600;
   font-size: 1.5rem;
   margin-bottom: 5px;
 }
 
 .msg-timestamp {
-  color: gray;
+  color: var(--text-gray);
   font-size: 1rem;
+  font-style: oblique;
   position: absolute;
   right: 5px;
 }
 
 .error {
-  color: rgb(255, 0, 0);
-  font-size: 1.1rem;
+  color: var(--super);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.user-page {
+  margin: 20px;
+}
+
+.cont {
+  background-color: var(--item);
+  margin: 20px 0;
+  padding: 10px 20px 30px 20px;
+  font-size: 1.5rem;
 }

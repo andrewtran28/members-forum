@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <%- include('partials/header') %>
     <h1>Sign Up</h1>
     <form action="" method="POST">
       <label for="username">Username: </label>
@@ -50,20 +51,20 @@
       <%- include('partials/customErrors', {errors: errors, selector:
       'lastName'}) %>
       <br />
-      <br />
       <label for="superMember">Super Membership Passcode: </label>
+      <br>
       <input
         id="super-member"
         name="superMember"
         autocomplete="off"
         maxLength="25"
-        placeholder="Enter the passphrase to become a super member"
+        placeholder="Enter the Super secret passphrase"
       />
       <br />
       <br />
-      <button>Sign Up</button>
+      <button class="btn-green">Sign Up</button>
     </form>
-    <hr />
+    <br>
     <a href="/">Return to home page</a>
   </body>
 </html>

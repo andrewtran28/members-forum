@@ -9,41 +9,51 @@
 <body>
   <%- include('partials/header') %>
   <main>
-    <h1>Account Page: <%= user.username %></h1>
-    <h2>Account information</h2>
-    <span>Username: <%= user.username %> </span>
-    <br>
-    <span>User ID: <%= user.user_id %></span>
-    <br>
-    <span>Full Name: <%= user.first_name %> <%= user.last_name %></span>
-    <br>
-    <span>Super Member: <%= user.super_member %></span>
-    <br>
+    <div class="user-page">
+      <h1>Account Page: <%= user.username %></h1>
+      <div class="cont">
+        <h2>Account information</h2>
+        <span>Username: <%= user.username %> </span>
+        <br>
+        <span>User ID: <%= user.user_id %></span>
+        <br>
+        <span>Full Name: <%= user.first_name %> <%= user.last_name %></span>
+        <br>
+        <span>Super Member: <%= user.super_member %></span>
+      </div>
 
-    <h2>Manage Account</h2>
-    <form action="/user/<%= user.user_id %>/change" method="POST">
-      <% if (currentUser.super_member) { %>
-          <button type="submit">Demote Account</button>
+      <div class="cont">
+        <h2>Manage Account</h2>
+        <form action="/user/<%= user.user_id %>/change" method="POST">
+          <% if (currentUser.super_member) { %>
+              <button class="btn-danger" type="submit">Demote Account</button>
+              <br>
+              <span class="error">Warning: This will revoke your status as a Super Member!</span>
+          <% } else { %>
+            <label for="superMember">Super Membership Passcode:</label>
+            <br>
+            <input
+              id="super-member"
+              name="superMember"
+              autocomplete="off"
+              maxLength="25"
+              placeholder="Enter the Super secret passphrase"
+            />
+            <button class="btn-green" type="submit">Update</button>
+          <% } %>
+        </form>
+        <br>
+        <form action="/user/<%= user.user_id %>/delete" method="POST">
+          <button class="btn-danger" type="submit">Delete Account</button>
           <br>
-          <span class="error">Warning: This will revoke your status as a Super Member!</span>
-      <% } else { %>
-        <label for="superMember">Super Membership Passcode: </label>
-        <input
-          id="super-member"
-          name="superMember"
-          autocomplete="off"
-          maxLength="25"
-          placeholder="Enter the passphrase to become a super member"
-        />
-        <button type="submit">Update</button>
-      <% } %>
-    </form>
-    <br>
-    <form action="/user/<%= user.user_id %>/delete" method="POST">
-      <button class="btn-delete" type="submit">Delete Account</button>
+          <span class="error">Warning: This will delete your account and all posted messages!</span>
+        </form>
+      </div>
+      
       <br>
-      <span class="error">Warning: This will delete your account and all posted messages!</span>
-    </form>
+      <a href="/">Return to home page</a>
+    </div>
+
   </main>
 
 </body>

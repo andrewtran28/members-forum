@@ -15,7 +15,7 @@
     <div class="message-header">
       <h1>Messages</h1>
       <% if (currentUser) { %>
-        <a href="/message/new"><button id="add-message">+ New Message</button></a>
+        <a href="/message/new"><button class="btn-green">+ New Message</button></a>
         <% } %>
     </div>
   
@@ -37,7 +37,7 @@
                   <div class="msg-side">
                     <form action="/deleteMessage" method="POST">
                       <input type="hidden" name="message_id" value="<%= msg.message_id %>">
-                      <button type="submit" class="delete-btn">Super Delete</button>
+                      <button type="submit" class="btn-danger delete">Delete</button>
                     </form>
                     <span class="msg-id">Message ID: <%= msg.message_id %></span>
                   </div>
@@ -46,7 +46,7 @@
                     <div class="msg-side">
                       <form action="/deleteMessage" method="POST">
                         <input type="hidden" name="message_id" value="<%= msg.message_id %>">
-                        <button type="submit" class="delete-btn">Delete</button>
+                        <button type="submit" class="btn-danger delete">Delete</button>
                       </form>
                     </div>
                   <% } %>

@@ -8,11 +8,11 @@
       <% if (currentUser) { %>
         <span>Welcome, <a href="/user/<%= currentUser.user_id %>"><%= currentUser.username %></a> (<%= currentUser.first_name %> <%= currentUser.last_name %>)</span>
         <% if (currentUser.super_member) { %>
-        <span class="super-member">(You are a super member)</span>
+        <span class="super-member">You are a super member!</span>
         <% } %>
-        <a href="/logout"><button>Log Out</button></a>
+        <span><a href="/logout">Log Out</a></span>
       <% } else { %>
-        <a href="/login"><button>Sign-In</button></a>
+        <a href="/login"><button class="btn-green">Sign-In</button></a>
         <span>Don't have an account? <a href="/signup">Sign-Up!</a></span>
       <% } %>
     </div>
