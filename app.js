@@ -32,6 +32,7 @@ app.use((req, res) => {
   res.status(404).render("error404");
 });
 
+const PORT = process.env.PORT || 3000;
 app.listen(process.env.PORT, () => {
   console.log(
     `Express App - Listening on port http://localhost:${process.env.PORT}`
