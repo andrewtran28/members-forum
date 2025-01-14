@@ -22,8 +22,6 @@ const getFormattedDate = (date) => {
 };
 
 const getIndex = asyncHandler(async (req, res) => {
-  console.log("currentUser: ");
-  console.log(res.locals.currentUser);
   let messages = await query.getAllMessages();
 
   messages = messages.map((message) => ({
@@ -50,13 +48,6 @@ const submitSignUp = asyncHandler(async (req, res) => {
         return next(err);
       }
       try {
-        console.log(
-          req.body.username,
-          req.body.firstName,
-          req.body.lastName,
-          hashedPassword,
-          req.body.superMember
-        );
         query.addUser(
           req.body.username,
           req.body.firstName,
@@ -89,7 +80,6 @@ const handleLogOut = (req, res, next) => {
 };
 
 const getUserPage = asyncHandler(async (req, res) => {
-  console.log(res.locals.currentUser);
   if (res.locals.currentUser.user_id !== parseInt(req.params.id)) {
     return res.status(403).json({ success: false, message: "Forbidden: You can only view your own user page if you are logged in."});
   }

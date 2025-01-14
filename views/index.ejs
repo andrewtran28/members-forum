@@ -32,20 +32,24 @@
                   <% } %>
                 </div>
                 
-                <%# For showcasing project: msg.message_id > 3 does not allows first 3 messages to be deleted. %>
-                <% if (currentUser.super_member && msg.message_id > 3) {%>
+                <%# For showcasing reasons: msg.message_id > 3 does not allows first 3 messages to be deleted by anyone. %>
+                <% if (currentUser.super_member && msg.message_id > 3) { %>
                   <div class="msg-side">
                     <form action="/deleteMessage" method="POST">
                       <input type="hidden" name="message_id" value="<%= msg.message_id %>">
-                      <button type="submit" class="delete-btn">Delete</button>
+                      <button type="submit" class="delete-btn">Super Delete</button>
                     </form>
                     <span class="msg-id">Message ID: <%= msg.message_id %></span>
                   </div>
-                <% } else if (currentUser.user_id == msg.user_id) { %>
-                    <form action="/deleteMessage" method="POST">
-                      <input type="hidden" name="message_id" value="<%= msg.message_id %>">
-                      <button type="submit" class="delete-btn">Delete</button>
-                    </form>
+                <% } else { %>
+                  <% if (currentUser.user_id == msg.user_id && msg.message_id > 3) { %>
+                    <div class="msg-side">
+                      <form action="/deleteMessage" method="POST">
+                        <input type="hidden" name="message_id" value="<%= msg.message_id %>">
+                        <button type="submit" class="delete-btn">Delete</button>
+                      </form>
+                    </div>
+                  <% } %>
                 <% } %>
               </div>
               <div class="msg-right-cont">

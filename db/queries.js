@@ -37,17 +37,11 @@ const updateUser = async (status, id) => {
 const deleteUser = async (user_id) => {
   try {
     await pool.query('BEGIN');
-
-    // Delete the user's messages
     await pool.query('DELETE FROM messages WHERE user_id = $1', [user_id]);
-
-    // Delete the user
     await pool.query('DELETE FROM users WHERE user_id = $1', [user_id]);
-
-    await pool.query('COMMIT'); // Commit transaction
-    console.log('User and associated messages deleted successfully');
+    await pool.query('COMMIT');
   } catch (error) {
-    await pool.query('ROLLBACK'); // Rollback if error occurs
+    await pool.query('ROLLBACK');
     console.error('Error deleting user and messages:', error);
   }
 }
